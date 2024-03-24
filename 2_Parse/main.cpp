@@ -6,6 +6,13 @@ int str_to_int(const std::string& str)
     std::istringstream(str) >> result;
     return result;
 }
+template<typename T>
+T str_to_type(const std::string& str)
+{
+    T result;
+    std::istringstream(str) >> result;
+    return result;
+}
 
 int main()
 {
@@ -20,6 +27,12 @@ int main()
         fplus::reduce(std::plus<int>(), 1, nums);
 
     std::cout << result << std::endl;
+
+    const std::string inputFloat = "1.2,5.3,4.4,7.5,2.1,3.8";
+    const auto partsF = fplus::split(',', false, inputFloat);
+    const auto numsF = fplus::transform(str_to_type<double>,partsF);
+    const auto resultF = fplus::reduce(std::plus<double>(),1,numsF);
+    std::cout << resultF << std::endl;
 }
 
 // Exercise:
