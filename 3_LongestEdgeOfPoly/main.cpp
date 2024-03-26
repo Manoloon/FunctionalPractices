@@ -22,16 +22,9 @@ int main()
     const auto result =
         //fplus::maximum_on(point_distance, edges);
         // instead of two separate points we need to use a vector<point>
-        fplus::maximum_on([&edges] (const point& p1, const point& p2) -> bool
+        fplus::maximum_on([&polygon] (const auto& edge) -> bool
         {
-            const float dx = p2.first - p1.first;
-            const float dy = p2.second - p1.second;
-            float dist1 = std::sqrt(dx * dx + dy * dy);
-
-            const float dx2 = p1.first - p2.first;
-            const float dy2 = p1.second - p2.second;
-            float dist2 = std::sqrt(dx2 * dx2 + dy2 * dy2);
-            return dist1 > dist2;
+            return point_distance(edge.first,edge.second);
         },edges);
 
     cout << fplus::show(result) << endl;

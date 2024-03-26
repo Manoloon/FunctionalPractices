@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # fetch the dependencies needed
-include_directories("C:\\Coding\\Common\\FunctionalPlus\\include")
+#include_directories("../Externals")
 
 # These tests can use the Catch2-provided main
 add_executable(1_KeepIf main.cpp)

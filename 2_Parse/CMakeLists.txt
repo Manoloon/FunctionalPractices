@@ -3,6 +3,7 @@ project(2_Parse VERSION 0.1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories("C:\\Coding\\Common\\FunctionalPlus\\include")
+# fetch the dependencies needed
+include_directories("../Externals")
 
 add_executable(2_Parse main.cpp)
