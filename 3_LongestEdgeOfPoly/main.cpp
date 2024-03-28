@@ -13,16 +13,11 @@ int main()
 {
     using namespace std;
 
-    vector<point> polygon =
-        { {1,2}, {7,3}, {6,5}, {4,4}, {2,9} };
+    vector<point> polygon = { {1,2}, {7,3}, {6,5}, {4,4}, {2,9} };
 
-    const auto edges =
-        fplus::overlapping_pairs_cyclic(polygon);
+    const auto edges = fplus::overlapping_pairs_cyclic(polygon);
 
-    const auto result =
-        //fplus::maximum_on(point_distance, edges);
-        // instead of two separate points we need to use a vector<point>
-        fplus::maximum_on([&polygon] (const auto& edge) -> bool
+    const auto result = fplus::maximum_on([&polygon] (const auto& edge) -> bool
         {
             return point_distance(edge.first,edge.second);
         },edges);
